@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    RED.nodes.registerType('ipc-publish',{
+        category: 'factbird',
+        color: '#D776FF',
+        defaults: {
+            name: {value:""}
+        },
+        inputs: 1,
+        outputs: 0,
+        icon: "factbird-logo.svg",
+        label: function() {
+            return this.name||"ipc-publish";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="ipc-publish">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="ipc-publish">
+    <p>Talks to the cloud through: IPC client --> greengrass MQTT broker --> AWS cloud.
+    </p>
+    <h3>Details</h3>
+    <p>As input, the node takes either JSON in a string form, or it attempts to parse msg.payload from JSON to a string.
+        <br><br>
+        The node then broadcasts this to one of two topics: fbedge/input/'UUID' or fbedge/event/'UUID', which is set with 'msg.topic'.  </p>
+</script>

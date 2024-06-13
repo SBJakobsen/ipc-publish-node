@@ -1,0 +1,21 @@
+{
+  "name": "node-red-ipc-publish",
+  "version": "1.0.1",
+  "description": "A node that uses an IPC client to access the greengrass MQTT broker and talk to AWS cloud",
+  "main": "ipc-node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "/greengrass/v2/bin/greengrass-cli component restart --names \"fbedge.node.red\""
+  },
+  "author": "SBJakobsen Factbird",
+  "license": "ISC",
+  "keywords": ["node-red"],
+  "node-red": {
+    "nodes": {
+      "ipc-publish": "ipc-publish.js"
+    }
+  },
+  "dependencies": {
+    "aws-iot-device-sdk-v2": "^1.19.5"
+  }
+}
